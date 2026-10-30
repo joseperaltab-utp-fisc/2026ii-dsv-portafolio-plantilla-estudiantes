@@ -1,0 +1,281 @@
+/* =====================================================================
+   entregas.css — Índice de entregas del portafolio
+   Desarrollo de Software V · II Semestre 2026
+   Misma paleta que consentidos.css, para que el curso se vea de una pieza.
+   ===================================================================== */
+
+:root {
+  color-scheme: light dark;
+
+  --tinta: #14233A;
+  --marino: #1E4270;
+  --marino-claro: #DCE6F3;
+  --ambar: #F4C45A;
+  --salvia: #2E6A4F;
+  --fondo: #F3F6F9;
+  --superficie: #FFFFFF;
+  --borde: #CBD5E1;
+  --texto: #14233A;
+  --texto-suave: #475467;
+
+  --fuente: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --fuente-mono: ui-monospace, "Cascadia Code", Consolas, monospace;
+
+  --e1: 0.5rem;
+  --e2: 1rem;
+  --e3: 1.5rem;
+  --e4: 2rem;
+  --radio: 0.5rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fondo: #0F1824;
+    --superficie: #17222F;
+    --borde: #2C3A4C;
+    --texto: #E6EDF6;
+    --texto-suave: #9FB0C6;
+    --marino-claro: #22334A;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--fondo);
+  color: var(--texto);
+  font-family: var(--fuente);
+  line-height: 1.55;
+}
+
+/* Enlace para saltar al contenido */
+body > a:first-child {
+  position: absolute;
+  top: -10rem;
+  left: var(--e2);
+  z-index: 10;
+  padding: var(--e1) var(--e2);
+  border-radius: var(--radio);
+  background-color: var(--ambar);
+  color: #14233A;
+  font-weight: 700;
+}
+
+body > a:first-child:focus { top: var(--e2); }
+
+:focus-visible {
+  outline: 3px solid var(--ambar);
+  outline-offset: 2px;
+}
+
+/* ------------------------------------------------------------ cabecera */
+body > header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--e3);
+  padding: var(--e4) var(--e3);
+  background-color: var(--tinta);
+  color: #F3F6F9;
+}
+
+body > header hgroup { margin: 0; }
+
+body > header h1 {
+  margin: 0;
+  font-size: clamp(1.6rem, 1.1rem + 2.2vw, 2.4rem);
+  line-height: 1.15;
+}
+
+body > header hgroup p {
+  margin: var(--e1) 0 0;
+  color: #C9D6E8;
+}
+
+body > header > p {
+  margin: 0;
+  margin-inline-start: auto;
+  padding-left: var(--e2);
+  border-left: 3px solid var(--ambar);
+  font-size: 0.95rem;
+  color: #D7E1F0;
+}
+
+/* ---------------------------------------------------------- navegación */
+body > nav {
+  padding: var(--e1) var(--e3);
+  border-bottom: 1px solid var(--borde);
+  background-color: var(--superficie);
+}
+
+body > nav h2 {
+  margin: 0;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--texto-suave);
+}
+
+body > nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--e1);
+  margin: var(--e1) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+body > nav a {
+  display: flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: 0 var(--e2);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  color: var(--texto);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+body > nav a:hover { background-color: var(--marino-claro); }
+
+/* ------------------------------------------------------------ contenido */
+main {
+  max-width: 76rem;
+  margin: 0 auto;
+  padding: var(--e4) var(--e3);
+}
+
+.intro {
+  max-width: 60ch;
+  margin: 0 0 var(--e4);
+  color: var(--texto-suave);
+}
+
+main section + section { margin-top: var(--e4); }
+
+main h2 {
+  margin: 0;
+  padding-bottom: var(--e1);
+  border-bottom: 3px solid var(--marino);
+  font-size: 1.5rem;
+}
+
+.resumen {
+  margin: var(--e1) 0 var(--e3);
+  color: var(--texto-suave);
+  font-size: 0.95rem;
+}
+
+/* --------------------------------------------------------- estudiantes */
+.estudiantes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+  gap: var(--e2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.estudiantes article {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e1);
+  height: 100%;
+  padding: var(--e2);
+  border: 1px solid var(--borde);
+  border-left: 4px solid var(--marino);
+  border-radius: var(--radio);
+  background-color: var(--superficie);
+}
+
+.estudiantes article.pendiente {
+  border-left-color: var(--borde);
+  opacity: 0.75;
+}
+
+.codigo {
+  margin: 0;
+  font-family: var(--fuente-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  color: var(--texto-suave);
+}
+
+.estudiantes h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.3;
+}
+
+.estudiantes h3 a {
+  color: var(--marino);
+  text-decoration: none;
+}
+
+.estudiantes h3 a:hover { text-decoration: underline; }
+
+.aviso {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+}
+
+/* Etiquetas de entrega */
+.entregas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: var(--e1) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.entregas a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.5rem;
+  min-height: 2.25rem;
+  padding: 0 0.5rem;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  background-color: var(--marino-claro);
+  color: var(--tinta);
+  font-family: var(--fuente-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.entregas a:hover {
+  background-color: var(--marino);
+  color: #FFFFFF;
+}
+
+.repo {
+  margin: auto 0 0;
+  padding-top: var(--e1);
+  font-size: 0.85rem;
+}
+
+.repo a { color: var(--texto-suave); }
+
+/* ------------------------------------------------------------------ pie */
+body > footer {
+  margin-top: var(--e4);
+  padding: var(--e3);
+  border-top: 1px solid var(--borde);
+  background-color: var(--superficie);
+  color: var(--texto-suave);
+  font-size: 0.9rem;
+}
+
+body > footer p { margin: 0 0 var(--e1); }
+
+@media print {
+  body > nav, body > a:first-child { display: none; }
+  .estudiantes { grid-template-columns: repeat(3, 1fr); }
+}
